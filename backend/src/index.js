@@ -21,10 +21,10 @@ app.use(cors(corsOption))
 app.use(express.json())
 app.use(express.urlencoded({extended:false}))
 
-app.use("/api/auth/user" , authRoute)
-app.use("/api/auth/message" , messageRoute)
+app.use("/api/user" , authRoute)
+app.use("/api/message" , messageRoute)
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === "development") {
     app.use(express.static(path.join(__dirname, "../frontend/dist")));
   
     app.get("*", (req, res) => {
